@@ -30,7 +30,7 @@ public class HotelManagementController {
 
     @PostMapping("/add-hotel")
     public String addHotel(@RequestBody Hotel hotel){
-
+        if(hotel == null) return "FAILURE";
         //You need to add an hotel to the database
         //incase the hotelName is null or the hotel Object is null return an empty a FAILURE
         //Incase somebody is trying to add the duplicate hotelName return FAILURE
@@ -41,7 +41,7 @@ public class HotelManagementController {
 
     @PostMapping("/add-user")
     public Integer addUser(@RequestBody User user){
-
+        if(user == null) return -1;
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
 
@@ -60,6 +60,7 @@ public class HotelManagementController {
 
     @PostMapping("/book-a-room")
     public int bookARoom(@RequestBody Booking booking){
+        if(booking == null) return "FAILURE";
 
         //The booking object coming from postman will have all the attributes except bookingId and amountToBePaid;
         //Have bookingId as a random UUID generated String
