@@ -60,7 +60,7 @@ public class HotelManagementController {
 
     @PostMapping("/book-a-room")
     public int bookARoom(@RequestBody Booking booking){
-        if(booking == null) return "FAILURE";
+        if(booking == null) return -1;
 
         //The booking object coming from postman will have all the attributes except bookingId and amountToBePaid;
         //Have bookingId as a random UUID generated String
